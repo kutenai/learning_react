@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+    devtool: 'eval',
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/only-dev-server',
@@ -9,13 +10,11 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js', //this is the default name, so you can skip it
-        //at this directory our bundle file will be available
-        //make sure port 8090 is used when launching webpack-dev-server
-        publicPath: 'http://localhost:8090/assets'
+        filename: 'bundle.js',
+        publicPath: '/static/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        //new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         loaders: [
